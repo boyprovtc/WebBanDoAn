@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "SPTheoQCSP";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h2 style="text-align:center; color: red ">Món Theo Quảng Cáo Sản Phẩm</h2>
+<div class="row">
+    @foreach (var mon in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "TrangChu", new { id = mon.IDSanPham})"></a>
+                <img alt="@mon.TenSanPham" src="~/Hinhsanpham/@mon.HinhAnh" width="200" />
+
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @mon.TenSanPham
+                    </h4>
+                    <p></p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

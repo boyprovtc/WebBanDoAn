@@ -1,0 +1,33 @@
+﻿@using WebBanDoAn.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center">Thông Tin Giỏ Hàng</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td>Mã đơn hàng</td>
+        <td>Tên món</td>
+        <td>Hình ảnh</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@item.idSanPham</td>
+            <td>@item.tenSP</td>
+            <td><img src="~/Hinhsanpham/@item.hinhAnh" /></td>
+            <td>@item.soLuong</td>
+            <td>@String.Format("{0:0,0}", item.donGia)</td>
+            <td>@String.Format("{0:0,0}", item.thanhTien)</td>
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:right; color:red">
+        <td colspan="3">Số lượng món: @ViewBag.tongSoLuong</td>
+        <td colspan="3">Tổng tiền: @String.Format("{0:0,0}", ViewBag.tongTien) VNĐ</td>
+    </tr>
+</table>

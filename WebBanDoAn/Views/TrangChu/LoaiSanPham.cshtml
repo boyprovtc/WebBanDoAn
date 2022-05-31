@@ -1,0 +1,11 @@
+﻿@model IEnumerable<WebBanDoAn.Models.LoaiSanPham>
+
+<p class="lead">Loại Món</p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SPTheoLoaiSP", "TrangChu", new { id = item.IDLoaiSanPham})" class="list-group-item">
+            @item.TenLoaiSanPham
+        </a>
+    }
+</div>
